@@ -18,6 +18,7 @@
 require './dbf'
 require 'optparse'
 
+
 def main
   additional = []
   outfile = nil
