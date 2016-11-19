@@ -8,10 +8,11 @@
 			文字型フィールドを出力指定すると、そのいずれか１つでも値のないレコードに対しては、レコードを出力しない
 			入力は、コマンドラインで指定したリストファイルを順に読込む。
 			出力は、コマンドラインで指定した出力ファイルに続けて書き込む。
-			
+
 =end
 
-	require "dbf.rb"
+	require "./dbf.rb"
+	require 'pry'
 
 	infile = ""
 	outfile = ""
@@ -43,7 +44,7 @@
 			reffield[count] = ARGV[count + 2]
 			count += 1
 		end
-		
+
 
 		reffieldnum = count		# 出力フィールド数(指定フィールドのみ)
 	else
@@ -53,7 +54,7 @@
 		p "       reffield      reference field name"
 		p ""
 		p "(ex.) dbfrecomb listfile.txt outdata.dbf pntid name area"
-		
+
 		exit
 	end
 
@@ -81,8 +82,8 @@
 	listcount = 0
 	while listcount < infilenum
 		dbfin = DBFrecordset.new		# ファイルごとにオブジェクトを生成する
-		dbfin.dbfopen(filelist[listcount], "r")
-		
+			dbfin.dbfopen(filelist[listcount], "r")
+
 p "input file:" + filelist[listcount]
 
 		numfields = dbfin.numfields
@@ -114,7 +115,7 @@ p "input file:" + filelist[listcount]
 		fieldcount = 0
 		while fieldcount < numfields
 			fieldname = dbfin.fieldname(fieldcount)
-			
+
 			# 雨量フィールドであれば、日時の形式に変換して配列に取得
 			# 雨量フィールドの判別は、"T"ではじまり、１０バイトで、最後が"0"であることとする。
 			if fieldname[0, 1] == "T" and fieldname.size == 10 and fieldname[-1, 1] == "0" then		# T039250030
@@ -140,7 +141,7 @@ p "input file:" + filelist[listcount]
 		# すべてのフィールドを見てコマンドラインで指定したフィールドがなければ、抜ける
 		if filecomplete != reffieldnum then
 			p "指定したフィールドが " + filelist[listcount] + " のテーブルにありません"
-			
+
 			exit
 		end
 
@@ -182,9 +183,9 @@ p "input file:" + filelist[listcount]
 			end		# if count == reffieldnum then
 			dbfin.movenext
 		end		# while not dbfin.eof
-		
+
 		dbfin.close
 		listcount += 1
 	end		#  listcount < infilenum
-	
+
 	dbfout.close
