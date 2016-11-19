@@ -15,7 +15,7 @@
 # ./recomb.rb -f pntid,name,area -o output.dbf input1.dbf input2.dbf
 #
 
-require 'dbf'
+require './dbf'
 require 'optparse'
 
 def main
