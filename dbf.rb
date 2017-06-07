@@ -250,7 +250,7 @@ module DBF
     end
 
     def serialize_value
-      # �㡧sprintf("%8.3f", ...)
+      # 例：sprintf("%8.3f", ...)
       sprintf("%#{size()}.#{decimal()}f", @value)
     end
 

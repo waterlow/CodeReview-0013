@@ -6,68 +6,68 @@
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #		DBFheader
-#		ƒwƒbƒ_æ“±•”
+#		ãƒ˜ãƒƒãƒ€å…ˆå°éƒ¨
 #
-# ƒCƒ“ƒ^[ƒtƒFƒCƒX
+# ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
 #		version, date1, date2, date3, numrec, headerbytes, recordbytes, reserve
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class DBFheader
 	def initialize
-		@version = nil			# ƒo[ƒWƒ‡ƒ“‚È‚Ç
-		@date1 = nil				# ÅIXV“ú(”Nj
-		@date2 = nil				# ÅIXV“ú(Œj
-		@date3 = nil				# ÅIXV“ú(“új
-		@numrec = nil				# ƒŒƒR[ƒh”
-		@headerbytes = nil	# ƒwƒbƒ_‚ÌƒoƒCƒg”
-		@recordbytes = nil	# ƒŒƒR[ƒh‚ÌƒoƒCƒg”
-		@reserve = nil			# —\–ñ—Ìˆæ‚È‚Ç
+		@version = nil			# ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãªã©
+		@date1 = nil				# æœ€çµ‚æ›´æ–°æ—¥(å¹´ï¼‰
+		@date2 = nil				# æœ€çµ‚æ›´æ–°æ—¥(æœˆï¼‰
+		@date3 = nil				# æœ€çµ‚æ›´æ–°æ—¥(æ—¥ï¼‰
+		@numrec = nil				# ãƒ¬ã‚³ãƒ¼ãƒ‰æ•°
+		@headerbytes = nil	# ãƒ˜ãƒƒãƒ€ã®ãƒã‚¤ãƒˆæ•°
+		@recordbytes = nil	# ãƒ¬ã‚³ãƒ¼ãƒ‰ã®ãƒã‚¤ãƒˆæ•°
+		@reserve = nil			# äºˆç´„é ˜åŸŸãªã©
 	end
 	attr_accessor :version, :date1, :date2, :date3, :numrec, :headerbytes, :recordbytes, :reserve
 end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #		DBFfield
-#		ƒtƒB[ƒ‹ƒh—v‘f
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ 
 #
-# ƒCƒ“ƒ^[ƒtƒFƒCƒX
+# ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
 #		fieldname, fieldtype, fieldsize, decimal, value
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class DBFfield
 	def initialize
-		@fieldname = ""			#ƒtƒB[ƒ‹ƒh–¼
-		@fieldtype = ""			#ƒtƒB[ƒ‹ƒhŒ^
-		@fieldsize = 0			#ƒtƒB[ƒ‹ƒh’·
-		@decimal = 0				#ƒtƒB[ƒ‹ƒh¬”•”’·
-		@value = nil				#ƒtƒB[ƒ‹ƒh’l
+		@fieldname = ""			#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å
+		@fieldtype = ""			#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹
+		@fieldsize = 0			#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é•·
+		@decimal = 0				#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å°æ•°éƒ¨é•·
+		@value = nil				#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤
 	end
 	attr_accessor :fieldname, :fieldtype, :fieldsize, :decimal, :value
 end
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #		DBFfields
-#		ƒtƒB[ƒ‹ƒh‹Lq”z—ñ
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°é…åˆ—
 #
-# ƒCƒ“ƒ^[ƒtƒFƒCƒX
+# ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
 #		add, fieldname, item, numfields
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class DBFfields
 	def initialize
-		@fieldarray = []		#ƒtƒB[ƒ‹ƒh—v‘f‚Ì”z—ñ
-		@fieldhash = {}			#ƒtƒB[ƒ‹ƒh–¼‚ÅƒAƒNƒZƒX‚·‚é‚½‚ß‚ÌƒnƒbƒVƒ…”z—ñ
+		@fieldarray = []		#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ ã®é…åˆ—
+		@fieldhash = {}			#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åã§ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ãŸã‚ã®ãƒãƒƒã‚·ãƒ¥é…åˆ—
 	end
 
 #-----------------------------------------------------------------------
 #		add
 #
-#		ƒtƒB[ƒ‹ƒh’è‹`‚ğˆø”‚ÉAƒtƒB[ƒ‹ƒh”z—ñ‚ÉƒtƒB[ƒ‹ƒh—v‘f‚ğ’Ç‰Á‚·‚é
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å®šç¾©ã‚’å¼•æ•°ã«ã€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—ã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ ã‚’è¿½åŠ ã™ã‚‹
 #
-# ˆø”
-#		fnameFƒtƒB[ƒ‹ƒh–¼
-#		ftypeFŒ^
-#		fsizeFƒtƒB[ƒ‹ƒh’·
-#		decF¬”•”’·
-# –ß‚è’l
-#		‚È‚µ
+# å¼•æ•°
+#		fnameï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å
+#		ftypeï¼šå‹
+#		fsizeï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é•·
+#		decï¼šå°æ•°éƒ¨é•·
+# æˆ»ã‚Šå€¤
+#		ãªã—
 #-----------------------------------------------------------------------
 	def add(fname, ftype, fsize, dec)
 		@field = DBFfield.new
@@ -77,19 +77,19 @@ class DBFfields
 		@field.decimal = dec
 
 		@fieldarray.push(@field)
-		@fieldhash[@field.fieldname] = @fieldarray.size - 1		#ƒtƒB[ƒ‹ƒh–¼‚É‘Î‰‚·‚éƒtƒB[ƒ‹ƒh”Ô†‚ğæ“¾‚·‚é
+		@fieldhash[@field.fieldname] = @fieldarray.size - 1		#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åã«å¯¾å¿œã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ç•ªå·ã‚’å–å¾—ã™ã‚‹
 	end
 
 #-----------------------------------------------------------------------
 #		fieldname
 #
-# ŠT—v
-#		ƒtƒB[ƒ‹ƒh”Ô†‚ğˆø”‚ÉAƒtƒB[ƒ‹ƒh–¼‚ğ•Ô‚·
+# æ¦‚è¦
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ç•ªå·ã‚’å¼•æ•°ã«ã€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åã‚’è¿”ã™
 #
-# ˆø”
-#		numFƒtƒB[ƒ‹ƒh”Ô†
-# –ß‚è’l
-#		ƒtƒB[ƒ‹ƒh–¼
+# å¼•æ•°
+#		numï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ç•ªå·
+# æˆ»ã‚Šå€¤
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å
 #-----------------------------------------------------------------------
 	def fieldname(num)
 		@fieldarray[num].fieldname
@@ -97,15 +97,15 @@ class DBFfields
 
 #-----------------------------------------------------------------------
 #		item
-#		ƒtƒB[ƒ‹ƒh‚Ö‚ÌƒAƒNƒZƒX
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹
 #
-# ŠT—v
-#		ƒtƒB[ƒ‹ƒh–¼‚ğˆø”‚ÉAƒtƒB[ƒ‹ƒh‹Lq”z—ñ‚Ì—v‘f‚ğ•Ô‚·
+# æ¦‚è¦
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åã‚’å¼•æ•°ã«ã€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°é…åˆ—ã®è¦ç´ ã‚’è¿”ã™
 #
-# ˆø”
-#		ƒtƒB[ƒ‹ƒh–¼
-# –ß‚è’l
-#		ƒtƒB[ƒ‹ƒh—v‘f
+# å¼•æ•°
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å
+# æˆ»ã‚Šå€¤
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ 
 #-----------------------------------------------------------------------
 	def item(fname)
 		@fieldarray[@fieldhash[fname]]
@@ -114,13 +114,13 @@ class DBFfields
 #-----------------------------------------------------------------------
 #		numfields
 #
-# ŠT—v
-#		ƒtƒB[ƒ‹ƒh‹Lq”z—ñ‚Ì—v‘f”‚ğ•Ô‚·
+# æ¦‚è¦
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°é…åˆ—ã®è¦ç´ æ•°ã‚’è¿”ã™
 #
-# ˆø”
-#		‚È‚µ
-# –ß‚è’l
-#		ƒtƒB[ƒ‹ƒh”
+# å¼•æ•°
+#		ãªã—
+# æˆ»ã‚Šå€¤
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ•°
 #-----------------------------------------------------------------------
 	def numfields
 		@fieldarray.size
@@ -130,40 +130,40 @@ end		# class DBFfields
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #		DBFrecordset
 #
-# ŠT—v
-#		ƒf[ƒ^ƒx[ƒXƒtƒ@ƒCƒ‹‚ÍAˆÈ‰º‚Ì‚R‚Â‚Ì•”•ª‚©‚ç‚È‚é
-#		‚P@ƒwƒbƒ_æ“±•”
-#		‚Q@ƒtƒB[ƒ‹ƒh‹Lq•”
-#		‚R@ƒf[ƒ^ƒŒƒR[ƒh•”
+# æ¦‚è¦
+#		ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã¯ã€ä»¥ä¸‹ã®ï¼“ã¤ã®éƒ¨åˆ†ã‹ã‚‰ãªã‚‹
+#		ï¼‘ã€€ãƒ˜ãƒƒãƒ€å…ˆå°éƒ¨
+#		ï¼’ã€€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°éƒ¨
+#		ï¼“ã€€ãƒ‡ãƒ¼ã‚¿ãƒ¬ã‚³ãƒ¼ãƒ‰éƒ¨
 #
-# ƒCƒ“ƒ^[ƒtƒFƒCƒX
+# ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
 #		addfield, dbfopen, close, eof, movefirst, movenext, addnew, update
 #		numfields, fieldname, fieldspec, fields
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class DBFrecordset
 	def initialize
-		@hdlead = DBFheader.new		#ƒwƒbƒ_æ“±•”
-		@fields = DBFfields.new		#ƒtƒB[ƒ‹ƒh‹Lq”z—ñ
+		@hdlead = DBFheader.new		#ãƒ˜ãƒƒãƒ€å…ˆå°éƒ¨
+		@fields = DBFfields.new		#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°é…åˆ—
 
 		@dbfeof = FALSE			#EOF
 		@dbfbof = FALSE			#BOF
-		@headerset = FALSE	# ƒtƒ@ƒCƒ‹‚Éƒwƒbƒ_•”‚ª‘‚«‚Ü‚ê‚Ä‚¢‚é‚©
-		@currentrecno = -1	# 0‚©‚çn‚Ü‚éƒŒƒR[ƒh”Ô†
-		@numrecords = 0			# 1‚©‚çn‚Ü‚éƒŒƒR[ƒh”
-		@headerlen = 0			# ƒwƒbƒ_’· 
-		@recordlen = 0			# ƒŒƒR[ƒh’·
+		@headerset = FALSE	# ãƒ•ã‚¡ã‚¤ãƒ«ã«ãƒ˜ãƒƒãƒ€éƒ¨ãŒæ›¸ãè¾¼ã¾ã‚Œã¦ã„ã‚‹ã‹
+		@currentrecno = -1	# 0ã‹ã‚‰å§‹ã¾ã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰ç•ªå·
+		@numrecords = 0			# 1ã‹ã‚‰å§‹ã¾ã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰æ•°
+		@headerlen = 0			# ãƒ˜ãƒƒãƒ€é•· 
+		@recordlen = 0			# ãƒ¬ã‚³ãƒ¼ãƒ‰é•·
 	end
 
 #-----------------------------------------------------------------------
 #		addfield
 #
-# ˆø”
-#		fnameFƒtƒB[ƒ‹ƒh–¼
-#		ftypeFŒ^
-#		fsizeFƒtƒB[ƒ‹ƒh’·
-#		decF¬”•”’·
-# –ß‚è’l
-#		‚È‚µ
+# å¼•æ•°
+#		fnameï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å
+#		ftypeï¼šå‹
+#		fsizeï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é•·
+#		decï¼šå°æ•°éƒ¨é•·
+# æˆ»ã‚Šå€¤
+#		ãªã—
 #-----------------------------------------------------------------------
 	def addfield(fname, ftype, fsize, dec)
 		@fields.add(fname, ftype, fsize, dec)
@@ -172,29 +172,29 @@ class DBFrecordset
 #-----------------------------------------------------------------------
 #		dbfopen
 #
-# ŠT—v
-#		“Ç‚İƒ‚[ƒh‚Å‚ÍAƒwƒbƒ_‚ğ“Ç‚İ‚ñ‚ÅƒtƒB[ƒ‹ƒh”z—ñ‚ÉƒZƒbƒg‚·‚é
-#		‘‚İƒ‚[ƒh‚Å‚ÍAƒI[ƒvƒ“‚·‚é‚¾‚¯‚Å‰½‚à‚µ‚È‚¢
+# æ¦‚è¦
+#		èª­è¾¼ã¿ãƒ¢ãƒ¼ãƒ‰ã§ã¯ã€ãƒ˜ãƒƒãƒ€ã‚’èª­ã¿è¾¼ã‚“ã§ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é…åˆ—ã«ã‚»ãƒƒãƒˆã™ã‚‹
+#		æ›¸è¾¼ã¿ãƒ¢ãƒ¼ãƒ‰ã§ã¯ã€ã‚ªãƒ¼ãƒ—ãƒ³ã™ã‚‹ã ã‘ã§ä½•ã‚‚ã—ãªã„
 #
-# ˆø”
-#		filenameFƒtƒ@ƒCƒ‹–¼
-#		openmodeFƒI[ƒvƒ“ƒ‚[ƒh "r"=“Ç‚İAc=V‹Kì¬
-# –ß‚è’l
-#		‚È‚µ
+# å¼•æ•°
+#		filenameï¼šãƒ•ã‚¡ã‚¤ãƒ«å
+#		openmodeï¼šã‚ªãƒ¼ãƒ—ãƒ³ãƒ¢ãƒ¼ãƒ‰ "r"=èª­è¾¼ã¿ã€c=æ–°è¦ä½œæˆ
+# æˆ»ã‚Šå€¤
+#		ãªã—
 #-----------------------------------------------------------------------
 	def dbfopen(filename, openmode)
 		if openmode != "r" and openmode != "c" then
-			p "ƒIƒvƒVƒ‡ƒ“‚ÌƒI[ƒvƒ“ƒ‚[ƒh [" + openmode + "] ‚ª•s³‚Å‚·"
+			p "ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®ã‚ªãƒ¼ãƒ—ãƒ³ãƒ¢ãƒ¼ãƒ‰ [" + openmode + "] ãŒä¸æ­£ã§ã™"
 			exit
 		end
 
 		@openmode = openmode
-		# “Ç‚İ‚İƒ‚[ƒh
+		# èª­ã¿è¾¼ã¿ãƒ¢ãƒ¼ãƒ‰
 		if openmode == "r" then
 			@fp = open(filename, "rb+")
 			if @fp != nil then
-				# idbfƒwƒbƒ_‚ğ“Ç‚İ‚ñ‚Å‚àA‚¢‚Ü‚Ì‚Æ‚±‚ëg‚¤‚ß‚Ç‚Í‚È‚¢‚ªj
-				#1@ƒwƒbƒ_æ“±•”
+				# ï¼ˆdbfãƒ˜ãƒƒãƒ€ã‚’èª­ã¿è¾¼ã‚“ã§ã‚‚ã€ã„ã¾ã®ã¨ã“ã‚ä½¿ã†ã‚ã©ã¯ãªã„ãŒï¼‰
+				#1ã€€ãƒ˜ãƒƒãƒ€å…ˆå°éƒ¨
 				@hdlead.version = @fp.read(1)
 				@hdlead.date1 = @fp.read(1)
 				@hdlead.date2 = @fp.read(1)
@@ -208,11 +208,11 @@ class DBFrecordset
 				@headerlen = @hdlead.headerbytes.unpack("s").pop
 				@recordlen = @hdlead.recordbytes.unpack("s").pop
 
-				#2@ƒtƒB[ƒ‹ƒh‹Lq•”
+				#2ã€€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°éƒ¨
 				numfields = (@hdlead.headerbytes.unpack("s").pop - 1) / 32 - 1
 				count = 0
 				while count < numfields do
-					hdldfieldname = @fp.read(11)	# ƒtƒB[ƒ‹ƒh‚ÌŒã‚ë‚É‹l‚Ü‚Á‚Ä‚¢‚é\000‚ğƒJƒbƒg‚·‚é
+					hdldfieldname = @fp.read(11)	# ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å¾Œã‚ã«è©°ã¾ã£ã¦ã„ã‚‹\000ã‚’ã‚«ãƒƒãƒˆã™ã‚‹
 					hdldfieldtype = @fp.read(1)
 					hdldreserve1 = @fp.read(4)
 					hdldfieldsize = @fp.read(1)
@@ -223,12 +223,12 @@ class DBFrecordset
 					
 					count += 1
 				end		#while count < numfields do
-				@headerset = TRUE		# ƒwƒbƒ_•”‚ğŠm”F‚µ‚½
+				@headerset = TRUE		# ãƒ˜ãƒƒãƒ€éƒ¨ã‚’ç¢ºèªã—ãŸ
 			else
 				p "infile open fail"
 			end
 
-		# V‹Kì¬ƒ‚[ƒh
+		# æ–°è¦ä½œæˆãƒ¢ãƒ¼ãƒ‰
 		else
 			@fp = open(filename, "wb+")
 		end
@@ -243,12 +243,12 @@ class DBFrecordset
 
 #-----------------------------------------------------------------------
 #		close
-#		V‹Kì¬ƒ‚[ƒh‚Ìê‡Aƒwƒbƒ_‚ğ‘‚Ş
+#		æ–°è¦ä½œæˆãƒ¢ãƒ¼ãƒ‰ã®å ´åˆã€ãƒ˜ãƒƒãƒ€ã‚’æ›¸è¾¼ã‚€
 #-----------------------------------------------------------------------
 	def close
 		if @openmode == "c" then
 			putheader
-			# ƒtƒ@ƒCƒ‹‚ÌI’[ƒ}[ƒNiChr(26)A&H1AA&O32j‚ğ‘‚«‚Ş
+			# ãƒ•ã‚¡ã‚¤ãƒ«ã®çµ‚ç«¯ãƒãƒ¼ã‚¯ï¼ˆChr(26)ã€&H1Aã€&O32ï¼‰ã‚’æ›¸ãè¾¼ã‚€
 			@fp.seek(0 + @headerlen + @recordlen * @numrecords, File::SEEK_SET)
 			@fp.write("\x1a")
 		end
@@ -260,10 +260,10 @@ class DBFrecordset
 
 #-----------------------------------------------------------------------
 #		movefirst
-#		ƒ|ƒCƒ“ƒ^‚ğÅ‰‚ÉƒZƒbƒg‚µ‚Ä‚PƒŒƒR[ƒh“Ç‚Ş
+#		ãƒã‚¤ãƒ³ã‚¿ã‚’æœ€åˆã«ã‚»ãƒƒãƒˆã—ã¦ï¼‘ãƒ¬ã‚³ãƒ¼ãƒ‰èª­è¾¼ã‚€
 #
-#	ƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‘‚«ˆÊ’u‚ÍAƒŒƒR[ƒh”Ô†‚ğŒ³‚Éw’è‚·‚é
-#	ƒtƒ@ƒCƒ‹I’[‚ÉƒR[ƒh(&H1A H)‚ª‚ ‚é‚½‚ßAƒŒƒR[ƒh”‚ğ’m‚Á‚Ä‚È‚¢‚Æeof‚ğ‘¨‚¦‚ç‚ê‚È‚¢
+#	ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿æ›¸ãä½ç½®ã¯ã€ãƒ¬ã‚³ãƒ¼ãƒ‰ç•ªå·ã‚’å…ƒã«æŒ‡å®šã™ã‚‹
+#	ãƒ•ã‚¡ã‚¤ãƒ«çµ‚ç«¯ã«ã‚³ãƒ¼ãƒ‰(&H1A ï¼Ÿ)ãŒã‚ã‚‹ãŸã‚ã€ãƒ¬ã‚³ãƒ¼ãƒ‰æ•°ã‚’çŸ¥ã£ã¦ãªã„ã¨eofã‚’æ‰ãˆã‚‰ã‚Œãªã„
 #-----------------------------------------------------------------------
 	def movefirst
 		if @headerset == FALSE then
@@ -277,7 +277,7 @@ class DBFrecordset
 
 #-----------------------------------------------------------------------
 #		movenext
-#		ƒŒƒR[ƒhƒ|ƒCƒ“ƒ^‚Pi‚ßAƒŒƒR[ƒh‚ğ“Ç‚Ş
+#		ãƒ¬ã‚³ãƒ¼ãƒ‰ãƒã‚¤ãƒ³ã‚¿ï¼‘é€²ã‚ã€ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’èª­è¾¼ã‚€
 #-----------------------------------------------------------------------
 	def movenext
 		@currentrecno += 1
@@ -291,8 +291,8 @@ class DBFrecordset
 
 #-----------------------------------------------------------------------
 #		addnew
-#		“Ç‚İ‘‚«ƒ|ƒCƒ“ƒ^‚ğÅŒã‚ÌƒŒƒR[ƒh‚ÌŒã‚ë‚É“®‚©‚·
-#		‹ó‚Ìƒtƒ@ƒCƒ‹‚É‘Î‚·‚éÅ‰‚ÌƒŒƒR[ƒh’Ç‰Á‚Ìê‡Aƒwƒbƒ_•”‚ğ‘‚«‚ñ‚Å‚©‚ç“Ç‚İ‘‚«ƒ|ƒCƒ“ƒ^‚ğƒZƒbƒg‚·‚é
+#		èª­ã¿æ›¸ããƒã‚¤ãƒ³ã‚¿ã‚’æœ€å¾Œã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å¾Œã‚ã«å‹•ã‹ã™
+#		ç©ºã®ãƒ•ã‚¡ã‚¤ãƒ«ã«å¯¾ã™ã‚‹æœ€åˆã®ãƒ¬ã‚³ãƒ¼ãƒ‰è¿½åŠ ã®å ´åˆã€ãƒ˜ãƒƒãƒ€éƒ¨ã‚’æ›¸ãè¾¼ã‚“ã§ã‹ã‚‰èª­ã¿æ›¸ããƒã‚¤ãƒ³ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 #-----------------------------------------------------------------------
 	def addnew
 		if @headerset == FALSE then
@@ -342,9 +342,9 @@ class DBFrecordset
 
 #-----------------------------------------------------------------------
 #		fieldspec
-#		ƒtƒB[ƒ‹ƒh‹Lq”z—ñ‚Ö‚ÌƒCƒ“ƒ^[ƒtƒFƒCƒX
-#		•´‚ç‚í‚µ‚¢‚ªAŸ‚Ìfields‚Å‚È‚­A‚±‚¿‚ç‚ª@fieldsƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
-#		‚³‚µ‚ ‚½‚èAg‚í‚È‚¢
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°é…åˆ—ã¸ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
+#		ç´›ã‚‰ã‚ã—ã„ãŒã€æ¬¡ã®fieldsã§ãªãã€ã“ã¡ã‚‰ãŒ@fieldsã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
+#		ã•ã—ã‚ãŸã‚Šã€ä½¿ã‚ãªã„
 #-----------------------------------------------------------------------
 	def fieldspec
 		@fields
@@ -352,8 +352,8 @@ class DBFrecordset
 
 #-----------------------------------------------------------------------
 #		fields
-#		ƒtƒB[ƒ‹ƒh—v‘f‚Ö‚ÌƒCƒ“ƒ^[ƒtƒFƒCƒX
-#		•´‚ç‚í‚µ‚¢‚ªA@fieldƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·‚Ì‚Å‚Í‚È‚­Aitem‚ğ•Ô‚·
+#		ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ ã¸ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
+#		ç´›ã‚‰ã‚ã—ã„ãŒã€@fieldã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™ã®ã§ã¯ãªãã€itemã‚’è¿”ã™
 #-----------------------------------------------------------------------
 	def fields(fname)
 		@fields.item(fname)
@@ -365,13 +365,13 @@ class DBFrecordset
 	def putheader
 		@fp.seek(0, File::SEEK_SET)
 
-		#1@ƒwƒbƒ_æ“±•”
-		@fp.write("\003")																			# ƒo[ƒWƒ‡ƒ“‚È‚Ç
-		@fp.write([Time.now.strftime("%y").to_i].pack("c"))		# ÅIXV“ú(”Nj
-		@fp.write([Time.now.strftime("%m").to_i].pack("c"))		# ÅIXV“ú(Œj
-		@fp.write([Time.now.strftime("%d").to_i].pack("c"))		# ÅIXV“ú(“új
-		@fp.write([@numrecords].pack("l"))										# ƒŒƒR[ƒh”
-		@headerlen = ((@fields.numfields + 1) * 32 + 1)				# ƒwƒbƒ_‚ÌƒoƒCƒg” ƒwƒbƒ_æ“±•”(32ƒoƒCƒg){ƒ°ƒtƒB[ƒ‹ƒh‹Lq•”(32ƒoƒCƒg) {‚P  ƒwƒbƒ_‚ÌI‚í‚è‚É1ƒoƒCƒg•t‚­
+		#1ã€€ãƒ˜ãƒƒãƒ€å…ˆå°éƒ¨
+		@fp.write("\003")																			# ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãªã©
+		@fp.write([Time.now.strftime("%y").to_i].pack("c"))		# æœ€çµ‚æ›´æ–°æ—¥(å¹´ï¼‰
+		@fp.write([Time.now.strftime("%m").to_i].pack("c"))		# æœ€çµ‚æ›´æ–°æ—¥(æœˆï¼‰
+		@fp.write([Time.now.strftime("%d").to_i].pack("c"))		# æœ€çµ‚æ›´æ–°æ—¥(æ—¥ï¼‰
+		@fp.write([@numrecords].pack("l"))										# ãƒ¬ã‚³ãƒ¼ãƒ‰æ•°
+		@headerlen = ((@fields.numfields + 1) * 32 + 1)				# ãƒ˜ãƒƒãƒ€ã®ãƒã‚¤ãƒˆæ•° ãƒ˜ãƒƒãƒ€å…ˆå°éƒ¨(32ãƒã‚¤ãƒˆ)ï¼‹Î£ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°éƒ¨(32ãƒã‚¤ãƒˆ) ï¼‹ï¼‘  ãƒ˜ãƒƒãƒ€ã®çµ‚ã‚ã‚Šã«1ãƒã‚¤ãƒˆä»˜ã
 		@fp.write([@headerlen].pack("s"))	
 
 		count = 0
@@ -380,13 +380,13 @@ class DBFrecordset
 			@recordlen += @fields.item(@fields.fieldname(count)).fieldsize	
 			count += 1
 		end
-		@fp.write([@recordlen].pack("s"))					# ƒŒƒR[ƒh‚ÌƒoƒCƒg” ƒ°((ƒtƒB[ƒ‹ƒh’·)+1) ƒŒƒR[ƒh‚Ìæ“ª‚ÉíœƒtƒB[ƒ‹ƒh‚ª•t‚­
-		@fp.write("\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000")		# —\–ñ—Ìˆæ‚È‚Ç 20ƒoƒCƒgo—Í
+		@fp.write([@recordlen].pack("s"))					# ãƒ¬ã‚³ãƒ¼ãƒ‰ã®ãƒã‚¤ãƒˆæ•° Î£((ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é•·)+1) ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å…ˆé ­ã«å‰Šé™¤ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒä»˜ã
+		@fp.write("\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000")		# äºˆç´„é ˜åŸŸãªã© 20ãƒã‚¤ãƒˆå‡ºåŠ›
 
-		#2@ƒtƒB[ƒ‹ƒh‹Lq•”
+		#2ã€€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°éƒ¨
 		count = 0
 		while count < (@fields.numfields) do
-			#ƒtƒB[ƒ‹ƒh–¼   iDBF ƒtƒ@ƒCƒ‹‚Ì’è‹`‚Å‚Í11ƒoƒCƒg)
+			#ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å   ï¼ˆDBF ãƒ•ã‚¡ã‚¤ãƒ«ã®å®šç¾©ã§ã¯11ãƒã‚¤ãƒˆ)
 			fieldnamelen = 0
 			fieldnamearr = @fields.fieldname(count).split(//)
 			while fieldnamelen < 11 do
@@ -398,35 +398,35 @@ class DBFrecordset
 				fieldnamelen += 1
 			end
 
-			@fp.write(@fields.item(@fields.fieldname(count)).fieldtype)			# ƒtƒB[ƒ‹ƒhŒ^   N,F:”’lŒ^AC:•¶šŒ^
-			@fp.write("\000\000\000\000")																		# —\–ñ—Ìˆæi4ƒoƒCƒgj
-			@fp.write([@fields.item(@fields.fieldname(count)).fieldsize.to_i].pack("C"))	# ƒtƒB[ƒ‹ƒh’·
-			@fp.write([@fields.item(@fields.fieldname(count)).decimal.to_i].pack("C"))		# ¬”•”‚Ì’·‚³
-			@fp.write("\000\000\000\000\000\000\000\000\000\000\000\000\000\000")					# —\–ñ—Ìˆæ‚È‚Çi14ƒoƒCƒgj
+			@fp.write(@fields.item(@fields.fieldname(count)).fieldtype)			# ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å‹   N,F:æ•°å€¤å‹ã€C:æ–‡å­—å‹
+			@fp.write("\000\000\000\000")																		# äºˆç´„é ˜åŸŸï¼ˆ4ãƒã‚¤ãƒˆï¼‰
+			@fp.write([@fields.item(@fields.fieldname(count)).fieldsize.to_i].pack("C"))	# ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰é•·
+			@fp.write([@fields.item(@fields.fieldname(count)).decimal.to_i].pack("C"))		# å°æ•°éƒ¨ã®é•·ã•
+			@fp.write("\000\000\000\000\000\000\000\000\000\000\000\000\000\000")					# äºˆç´„é ˜åŸŸãªã©ï¼ˆ14ãƒã‚¤ãƒˆï¼‰
 			
 			count += 1
 		end		# while count < (@fields.numfields) do
 		
-		#2@ƒwƒbƒ_•”iƒtƒB[ƒ‹ƒh‹Lq•”j‚ÌI‚í‚èƒ}[ƒNi&H0Dj
+		#2ã€€ãƒ˜ãƒƒãƒ€éƒ¨ï¼ˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨˜è¿°éƒ¨ï¼‰ã®çµ‚ã‚ã‚Šãƒãƒ¼ã‚¯ï¼ˆ&H0Dï¼‰
 		@fp.write("\x0d")
-		@headerset = TRUE		# ƒwƒbƒ_•”‚ğ‘‚«‚ñ‚¾
+		@headerset = TRUE		# ãƒ˜ãƒƒãƒ€éƒ¨ã‚’æ›¸ãè¾¼ã‚“ã 
 	end
 
 #-----------------------------------------------------------------------
 #		writerecord
 #-----------------------------------------------------------------------
 	def writerecord
-		# 1ƒoƒCƒg‹ó”’‚ğo—Íidbfƒtƒ@ƒCƒ‹d—l‚Ìíœƒ}[ƒNj
+		# 1ãƒã‚¤ãƒˆç©ºç™½ã‚’å‡ºåŠ›ï¼ˆdbfãƒ•ã‚¡ã‚¤ãƒ«ä»•æ§˜ã®å‰Šé™¤ãƒãƒ¼ã‚¯ï¼‰
 		@fp.write(" ")
 		
 		count = 0
 		while count < (@fields.numfields) do
 			typechar = @fields.item(@fields.fieldname(count)).fieldtype
 			if typechar == "N" or typechar == "F" then
-				# —áF@fp.printf("%8.3f", value)
+				# ä¾‹ï¼š@fp.printf("%8.3f", value)
 				@fp.printf("%" + @fields.item(@fields.fieldname(count)).fieldsize.to_s + "." + @fields.item(@fields.fieldname(count)).decimal.to_s + "f",  @fields.item(@fields.fieldname(count)).value)
 			elsif typechar == "C" then
-				# —áF@fp.printf("%-8s", value)
+				# ä¾‹ï¼š@fp.printf("%-8s", value)
 				@fp.printf("%-" + @fields.item(@fields.fieldname(count)).fieldsize.to_s + "s",  @fields.item(@fields.fieldname(count)).value)
 			else
 				p "illegal type"
@@ -439,7 +439,7 @@ class DBFrecordset
 #		readrecord
 #-----------------------------------------------------------------------
 	def readrecord
-		# ‚PƒoƒCƒg“Ç‚İÌ‚Ä‚éidbfƒtƒ@ƒCƒ‹d—l‚Ìíœƒ}[ƒNj
+		# ï¼‘ãƒã‚¤ãƒˆèª­ã¿æ¨ã¦ã‚‹ï¼ˆdbfãƒ•ã‚¡ã‚¤ãƒ«ä»•æ§˜ã®å‰Šé™¤ãƒãƒ¼ã‚¯ï¼‰
 		@fp.read(1)
 		
 		count = 0
@@ -458,12 +458,12 @@ class DBFrecordset
 
 #-----------------------------------------------------------------------
 #		moverecord
-#		ƒ|ƒCƒ“ƒ^‚ğˆø”‚ÌƒŒƒR[ƒh”Ô†‚ÉƒZƒbƒg‚·‚é
+#		ãƒã‚¤ãƒ³ã‚¿ã‚’å¼•æ•°ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ç•ªå·ã«ã‚»ãƒƒãƒˆã™ã‚‹
 #
-# ˆø”
-#		recnoFƒŒƒR[ƒh”Ô†
-# –ß‚è’l
-#		‚È‚µ
+# å¼•æ•°
+#		recnoï¼šãƒ¬ã‚³ãƒ¼ãƒ‰ç•ªå·
+# æˆ»ã‚Šå€¤
+#		ãªã—
 #-----------------------------------------------------------------------
 	def moverecord(recno)
 		if recno >= @numrecords then
@@ -473,14 +473,14 @@ class DBFrecordset
 		else
 			@dbfeof = FALSE
 			@dbfbof = FALSE
-			# “Ç‚İ‘‚«‚ÌŠJnˆÊ’u‚ÉƒZƒbƒg@ƒwƒbƒ_•”‚ÌÅŒã‚É1ƒoƒCƒg‚ÌƒR[ƒh(&H0D)‚ª‚ ‚é
-			# ƒoƒCƒgˆÊ’u‚Í‚O‚©‚çn‚Ü‚éBƒŒƒR[ƒh”Ô†‚Í‚O‚©‚çn‚Ü‚éB
+			# èª­ã¿æ›¸ãã®é–‹å§‹ä½ç½®ã«ã‚»ãƒƒãƒˆã€€ãƒ˜ãƒƒãƒ€éƒ¨ã®æœ€å¾Œã«1ãƒã‚¤ãƒˆã®ã‚³ãƒ¼ãƒ‰(&H0D)ãŒã‚ã‚‹
+			# ãƒã‚¤ãƒˆä½ç½®ã¯ï¼ã‹ã‚‰å§‹ã¾ã‚‹ã€‚ãƒ¬ã‚³ãƒ¼ãƒ‰ç•ªå·ã¯ï¼ã‹ã‚‰å§‹ã¾ã‚‹ã€‚
 			@fp.seek(0 + @headerlen + @recordlen * recno, File::SEEK_SET)
 		end
 	end
 
 #-----------------------------------------------------------------------
-#		ŒÄ‚Ño‚µ§ŒÀ
+#		å‘¼ã³å‡ºã—åˆ¶é™
 #-----------------------------------------------------------------------
 	protected :putheader, :writerecord, :readrecord, :moverecord
 
